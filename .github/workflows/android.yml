@@ -24,7 +24,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: upload artifact to Firebase App Distribution
-      if: github.event.pull_request.merged == true
+      if: github.event_name == 'push'
       uses: wzieba/Firebase-Distribution-Github-Action@v1
       with:
         appId: ${{secrets.FIREBASE_APP_ID}}
